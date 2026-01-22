@@ -1,10 +1,7 @@
-from utils.driver_factory import get_driver
+from pages.google_page import GooglePage
 
+def test_open_google(driver):
+    page = GooglePage(driver)
+    page.open()
 
-def test_open_google():
-    driver = get_driver()
-    driver.get("https://www.google.com")
-
-    assert "Google" in driver.title
-
-    driver.quit()
+    assert "Google" in page.get_title()
